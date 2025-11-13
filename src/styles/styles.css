@@ -1,0 +1,487 @@
+/* ----------------------------- */
+/* 🔹 GLOBAL STYLES              */
+/* ----------------------------- */
+:root {
+  --primary: #059669;       /* emerald */
+--secondary: #34d399;     /* light mint */
+--dark-bg: #f3f4f6;       /* cool light gray */
+--light-bg: #ffffff;
+--text: #111827;          /* dark neutral */
+--card-bg: rgba(5, 150, 105, 0.05);
+--accent: linear-gradient(135deg, #059669, #34d399);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--dark-bg);
+  color: var(--text);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* ----------------------------- */
+/* 🔹 NAVBAR                     */
+/* ----------------------------- */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(10, 15, 30, 0.85);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 10%;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ✅ Container for logo + links + hamburger */
+.nav-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: 700;
+  background: var(--accent);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+}
+
+/* ✅ Hamburger button positioned on right corner */
+.menu-btn {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.menu-btn:hover {
+  transform: translateY(-50%) scale(1.1);
+  color: var(--primary);
+}
+
+/* Mobile styles */
+@media (max-width: 900px) {
+  .nav-links {
+    display: none;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  .mobile-menu {
+    background: rgba(10, 15, 30, 0.95);
+    position: absolute;
+    width: 100%;
+    top: 65px;
+    left: 0;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .mobile-menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .mobile-menu a:hover {
+    color: var(--primary);
+  }
+}
+
+/* ----------------------------- */
+/* 🔹 HERO (HOME)                */
+/* ----------------------------- */
+.hero-section {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, rgba(0, 224, 255, 0.15), transparent 70%), var(--dark-bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 150px 20px 100px;
+  animation: fadeUp 1.2s ease-in-out;
+}
+
+.hero-section h2 {
+  font-size: 3rem;
+  background: var(--accent);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 15px;
+  animation: popIn 1s ease forwards;
+}
+
+.hero-section p {
+  max-width: 800px;
+  line-height: 1.6;
+  font-size: 1.1rem;
+  opacity: 0.9;
+  animation: fadeUp 1.5s ease forwards;
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ----------------------------- */
+/* 🔹 ABOUT US SECTION (3 BOXES + EMOJI) */
+/* ----------------------------- */
+.vision {
+  background: var(--light-bg);
+  border-radius: 25px;
+  padding: 70px 8%;
+  margin: 80px auto;
+  max-width: 1200px;
+  box-shadow: 0 0 40px rgba(0, 224, 255, 0.15);
+  animation: fadeInBox 1.5s ease;
+  text-align: center;
+}
+
+.vision h1 {
+  color: var(--primary);
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
+.about-boxes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.about-card {
+  background: var(--card-bg);
+  border-radius: 18px;
+  padding: 40px 20px;
+  box-shadow: 0 0 25px rgba(0, 224, 255, 0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.about-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 40px rgba(0, 224, 255, 0.25);
+}
+
+/* 🎯 Centered emoji icon */
+.emoji {
+  font-size: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  animation: popEmoji 1s ease forwards;
+}
+
+@keyframes popEmoji {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.about-card h3 {
+  color: var(--secondary);
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+}
+
+.about-card p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .emoji {
+    font-size: 2.5rem;
+  }
+}
+
+/* ----------------------------- */
+/* 🔹 SERVICES (unchanged)       */
+/* ----------------------------- */
+.services {
+  padding: 100px 10%;
+}
+
+.services h2 {
+  text-align: center;
+  color: var(--primary);
+  margin-bottom: 40px;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.service-card {
+  background: var(--light-bg);
+  border-radius: 18px;
+  padding: 25px;
+  text-align: center;
+  transition: transform 0.4s ease, background 0.4s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  background:lightseagreen;
+}
+
+.service-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.service-card h3 {
+  margin-top: 15px;
+  color: var(--primary);
+}
+/* ----------------------------- */
+/* 🔹 CONTACT SECTION (Responsive Professional Layout) */
+/* ----------------------------- */
+.contact {
+  background: var(--light-bg);
+  border-radius: 20px;
+  padding: 80px 8%;
+  margin: 120px auto;
+  max-width: 1200px;
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.06);
+}
+
+.contact-title {
+  text-align: center;
+  color: var(--primary);
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 50px;
+  letter-spacing: 0.5px;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 60px;
+  align-items: start;
+}
+
+/* ✅ Left Side (Form Box) */
+.contact-left {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 35px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+.contact-left:hover {
+  transform: translateY(-4px);
+}
+
+/* ✅ Right Side (Contact Info) */
+.contact-right {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 35px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  line-height: 1.7;
+  color: #1e293b;
+}
+
+.contact-right h3 {
+  color: var(--primary);
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+}
+
+.contact-right p {
+  margin-bottom: 12px;
+}
+
+.contact-right a {
+  color: var(--secondary);
+  text-decoration: none;
+}
+
+.contact-right a:hover {
+  text-decoration: underline;
+}
+
+.footer-end {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+/* ----------------------------- */
+/* 🔹 FORM LAYOUT                */
+/* ----------------------------- */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.contact-form h3 {
+  text-align: left;
+  color: var(--primary);
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.contact-form label {
+  display: flex;
+  flex-direction: column;
+  color: #1e293b;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  margin-top: 6px;
+  width: 100%;
+  background: #f9fafb;
+  border: 1px solid #d1d5db;
+  color: #1e293b;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 6px rgba(56, 189, 248, 0.3);
+}
+
+.contact-form select {
+  cursor: pointer;
+}
+
+.contact-form textarea {
+  resize: none;
+}
+
+.contact-form button {
+  align-self: flex-start;
+  background: var(--accent);
+  border: none;
+  color: white;
+  font-weight: 600;
+  padding: 12px 32px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.contact-form button:hover {
+  transform: scale(1.03);
+  background: linear-gradient(135deg, #38bdf8, #0284c7);
+}
+
+.form-status {
+  margin-top: 15px;
+  text-align: center;
+  color: var(--primary);
+  font-weight: 500;
+}
+
+/* ✅ Responsive Layout */
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .contact-left,
+  .contact-right {
+    padding: 25px;
+  }
+
+  .contact-title {
+    margin-bottom: 30px;
+  }
+}
+
+/* ----------------------------- */
+/* 🔹 SCROLL ANIMATION (Generic) */
+/* ----------------------------- */
+section,
+footer {
+  animation: fadeUp 1.3s ease;
+}

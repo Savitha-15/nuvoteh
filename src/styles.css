@@ -1,0 +1,58 @@
+:root{
+  --bg: linear-gradient(135deg,#ff9a9e 0%,#fad0c4 50%,#fbc2eb 100%);
+  --card: rgba(255,255,255,0.85);
+  --accent: linear-gradient(90deg,#667eea,#764ba2);
+  --glass: rgba(255,255,255,0.6);
+  font-family: 'Poppins', sans-serif;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  min-height:100vh;
+  background: radial-gradient(circle at 10% 10%, rgba(255,255,255,0.06), transparent 20%), var(--bg);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  color:#102a43;
+}
+.container{max-width:1100px;margin:0 auto;padding:0 20px}
+.navbar{backdrop-filter: blur(6px); padding:18px 0}
+.nav-inner{display:flex;align-items:center;justify-content:space-between}
+.brand{font-family:'Playfair Display', serif;font-size:28px;font-weight:700;color:#0f1724}
+.nav-links a{margin-left:18px;text-decoration:none;color:#0f1724;font-weight:600}
+
+.hero{padding:60px 0;display:grid;grid-template-columns:1fr 460px;gap:40px;align-items:start}
+.hero-title{font-family:'Playfair Display',serif;font-size:42px;margin:0 0 10px}
+.hero-sub{margin:0 0 30px;font-weight:500}
+
+.card{background:var(--card);border-radius:18px;padding:24px;box-shadow:0 10px 30px rgba(16,42,67,0.12)}
+.form-card{padding:26px}
+.form-title{margin:0 0 8px;font-size:20px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+label{display:block;font-size:13px}
+label span{display:block;margin-bottom:8px;font-weight:600}
+input, textarea{width:100%;padding:10px;border-radius:10px;border:1px solid rgba(16,42,67,0.08);outline:none;font-size:14px}
+label.full{grid-column:1/-1}
+.actions{margin-top:12px;display:flex;justify-content:flex-end}
+.btn{background:linear-gradient(90deg,#667eea,#764ba2);color:white;padding:10px 16px;border-radius:12px;border:none;font-weight:700;cursor:pointer;box-shadow:0 8px 20px rgba(118,75,162,0.22)}
+.btn:disabled{opacity:0.6;cursor:not-allowed}
+
+.success{color:green;margin-top:10px}
+.error{color:#c53030;margin-top:10px}
+
+.footer{padding:28px 0;margin-top:40px}
+.footer-inner{display:flex;justify-content:space-between;align-items:center}
+.socials a{margin-left:14px;text-decoration:none;color:#0f1724}
+
+/* responsive */
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr; padding:30px 0}
+  .grid{grid-template-columns:1fr}
+}
+
+/* subtle float animation for hero */
+@keyframes floaty {
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
+  100%{transform:translateY(0)}
+}
+.hero-title{animation:floaty 6s ease-in-out infinite}
