@@ -9,15 +9,14 @@ export default function App() {
 
   const navLinks = [
     { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Services", href: "#services" },
+    { name: "About Us", href: "#about" },
+    { name: "Our Services", href: "#services" },
     { name: "Contact", href: "#contact" },
   ];
 
   return (
-    <div id="home">
-
-      {/* ================= NAVBAR ================= */}
+    <div className="homepage" id="home">
+      {/* ✅ Navbar */}
       <motion.nav className="navbar">
         <div className="nav-container">
           <h1 className="logo">Nuvoteh</h1>
@@ -49,7 +48,7 @@ export default function App() {
         </ul>
       </motion.nav>
 
-      {/* ================= HERO ================= */}
+      {/* ✅ Hero Section */}
       <motion.header
         className="hero-section"
         initial={{ opacity: 0, y: -50 }}
@@ -62,16 +61,11 @@ export default function App() {
           Welcome to NUVOTEH - Empowering Digital Innovation. At NUVOTEH, we turn
           ideas into exceptional digital solutions.
         </p>
+        <p>Our goal is simple — Innovation that empowers success.</p>
       </motion.header>
 
-      {/* ================= ABOUT US ================= */}
-      <motion.section
-        className="vision"
-        id="about"
-        initial={{ x: -50, opacity: 0 }}
-        whileInView={{ x: 0, opacity: 1 }}
-        transition={{ duration: 1 }}
-      >
+      {/* ✅ About Us */}
+      <motion.section className="vision" id="about">
         <h1>About Us</h1>
 
         <div className="about-boxes">
@@ -79,52 +73,88 @@ export default function App() {
             <div className="emoji">👥</div>
             <h3>Who We Are</h3>
             <p>
-              NUVOTEH is a creative technology-based company with passionate
-              innovators.
+              NUVOTEH is a creative and technology-based company founded by
+              passionate innovators.
             </p>
           </div>
 
           <div className="about-card">
             <div className="emoji">👁️</div>
             <h3>Our Vision</h3>
-            <p>
-              To be a reliable digital partner built on creativity and quality.
-            </p>
+            <p>To be a professional and reliable digital partner.</p>
           </div>
 
           <div className="about-card">
             <div className="emoji">💡</div>
             <h3>Our Mission</h3>
             <p>
-              To deliver scalable and user-friendly digital solutions.
+              To deliver modern, scalable, and user-friendly digital solutions.
             </p>
           </div>
         </div>
       </motion.section>
 
-      {/* ================= SERVICES ================= */}
-      <motion.section
-        className="services"
-        id="services"
-        initial={{ scale: 0.9, opacity: 0 }}
-        whileInView={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 1 }}
-      >
+      {/* ✅ Services */}
+      <motion.section className="services" id="services">
         <h2>Our Services</h2>
 
         <div className="service-grid">
           {[
-            { img: "/assets/webdevelopment.jpg", title: "Web Development", desc: "Responsive websites for your business." },
-            { img: "/assets/appdevelopment.jpg", title: "App Development", desc: "Android/iOS apps with smooth UI/UX." },
-            { img: "/assets/digitalmarkerting.jpg", title: "Digital Marketing", desc: "SEO & Social media campaigns." },
-            { img: "/assets/documentation.jpg", title: "Documentation", desc: "Professional business documents." },
-            { img: "/assets/seo.jpg", title: "SEO", desc: "Boost your website visibility." },
-            { img: "/assets/businesspromotion.jpg", title: "Business Promotion", desc: "Grow your brand creatively." },
-            { img: "/assets/tradermentership.jpg", title: "Trading Mentorship", desc: "Learn trading from experts." },
-            { img: "/assets/logomarker.jpg", title: "Logo Design", desc: "Modern and unique logo designs." },
-            { img: "/assets/posterdesign.jpg", title: "Poster Design", desc: "Creative poster designs." },
-            { img: "/assets/videoediting.jpg", title: "Video Editing", desc: "Professional video editing." },
-            { img: "/assets/graphicdesign.jpg", title: "Graphic Design", desc: "Make your brand stand out." },
+            {
+              img: "/assets/webdevelopment.jpg",
+              title: "Web Development",
+              desc: "Responsive, fast websites.",
+            },
+            {
+              img: "/assets/appdevelopment.jpg",
+              title: "App Development",
+              desc: "Android/iOS app development.",
+            },
+            {
+              img: "/assets/digitalmarkerting.jpg",
+              title: "Digital Marketing",
+              desc: "SEO & online ads.",
+            },
+            {
+              img: "/assets/documentation.jpg",
+              title: "Documentation",
+              desc: "Business documentation services.",
+            },
+            {
+              img: "/assets/seo.jpg",
+              title: "SEO",
+              desc: "Improve Google ranking.",
+            },
+            {
+              img: "/assets/businesspromotion.jpg",
+              title: "Business Promotion",
+              desc: "Brand marketing.",
+            },
+            {
+              img: "/assets/tradermentership.jpg",
+              title: "Trading Mentorship",
+              desc: "Learn trading effectively.",
+            },
+            {
+              img: "/assets/logomarker.jpg",
+              title: "Logo Design",
+              desc: "Modern logos.",
+            },
+            {
+              img: "/assets/posterdesign.jpg",
+              title: "Poster Design",
+              desc: "Marketing posters.",
+            },
+            {
+              img: "/assets/videoediting.jpg",
+              title: "Video Editing",
+              desc: "Professional video editing.",
+            },
+            {
+              img: "/assets/graphicdesign.jpg",
+              title: "Graphic Design",
+              desc: "Creative designs.",
+            },
           ].map((service) => (
             <div className="service-card" key={service.title}>
               <img src={service.img} alt={service.title} />
@@ -135,24 +165,19 @@ export default function App() {
         </div>
       </motion.section>
 
-      {/* ================= CONTACT FOOTER ================= */}
-      <motion.footer
-        className="contact"
-        id="contact"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-      >
+      {/* ✅ Contact Section */}
+      <motion.footer className="contact" id="contact">
         <h2 className="contact-title">Contact</h2>
 
         <div className="contact-grid">
+          {/* Left – Form */}
           <div className="contact-left">
             <ContactForm />
           </div>
 
+          {/* Right – Details */}
           <div className="contact-right">
             <h3>Contact Details</h3>
-
             <p>
               <strong>Email:</strong>{" "}
               <a href="mailto:nuvoteh2023@gmail.com">nuvoteh2023@gmail.com</a>
@@ -163,7 +188,6 @@ export default function App() {
               <a
                 href="https://www.linkedin.com/in/nuvoteh-creators-510304329"
                 target="_blank"
-                rel="noopener noreferrer"
               >
                 Visit LinkedIn
               </a>
@@ -174,7 +198,6 @@ export default function App() {
               <a
                 href="https://www.instagram.com/nuvoteh_official"
                 target="_blank"
-                rel="noopener noreferrer"
               >
                 @nuvoteh_official
               </a>
@@ -182,16 +205,15 @@ export default function App() {
 
             <p>
               <strong>Contacts:</strong>
-              <br />📱 99762 57449 (Prakash)
-              <br />📱 91508 56346 (Gokul Nath)
-              <br />📱 83442 29777 (Savitha Lakshmi)
+              <br />📱 99762 57449  
+              <br />📱 91508 56346  
+              <br />📱 83442 29777
             </p>
           </div>
         </div>
 
         <p className="footer-end">© 2025 Nuvoteh. All Rights Reserved.</p>
       </motion.footer>
-
     </div>
   );
 }
