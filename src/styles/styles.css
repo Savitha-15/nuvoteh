@@ -215,7 +215,7 @@ body {
 .about-boxes {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  gap: 30px;
+  gap: 40px;
 }
 @keyframes popEmoji {
   0% {
@@ -461,28 +461,31 @@ body {
   .contact-title {
     margin-bottom: 30px;
   }
-}
+}/* 📱 CONTACT — Mobile View Fix */
 @media (max-width: 900px) {
+
+  /* Stack elements vertically */
   .contact-grid {
     display: flex;
     flex-direction: column;
+    gap: 30px;
   }
 
+  /* Form first */
   .contact-left {
     order: 1;
+    padding: 25px;
   }
 
+  /* Details second */
   .contact-right {
     order: 2;
+    padding: 25px;
   }
-}
 
-
-
-/* ----------------------------- */
-/* 🔹 SCROLL ANIMATION (Generic) */
-/* ----------------------------- */
-section,
-footer {
-  animation: fadeUp 1.3s ease;
+  /* Title spacing */
+  .contact-title {
+    margin-bottom: 25px;
+    text-align: center;
+  }
 }
