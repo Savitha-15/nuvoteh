@@ -23,119 +23,105 @@ body {
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
-
-/* ----------------------------- */
-/* 🔹 NAVBAR                     */
-/* ----------------------------- */
+/* NAVBAR BASE */
 .navbar {
-  position: fixed;
-  top: 0;
   width: 100%;
-  background: rgba(10, 15, 30, 0.85);
-  backdrop-filter: blur(10px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 16px 10%;
-  z-index: 1000;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: #ffffff;
+  padding: 15px 25px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 50;
 }
 
-/* ✅ Container for logo + links + hamburger */
 .nav-container {
-  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  position: relative;
+  align-items: center;
 }
 
 .logo {
-  font-size: 1.6rem;
+  font-size: 26px;
   font-weight: 700;
-  background: var(--accent);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #1e1e1e;
 }
 
+/* DESKTOP NAV */
 .nav-links {
   display: flex;
-  gap: 25px;
+  gap: 35px;
+}
+
+.nav-links li {
   list-style: none;
 }
 
 .nav-links a {
-  color: white;
   text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s;
+  font-size: 17px;
+  font-weight: 600;
+  color: #1e293b;
+  transition: 0.3s ease;
 }
 
 .nav-links a:hover {
-  color: var(--primary);
+  color: #38bdf8;
 }
 
-/* ✅ Hamburger button positioned on right corner */
+/* HAMBURGER BUTTON */
 .menu-btn {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  display: none;
   background: none;
   border: none;
-  color: white;
+  display: none; /* hidden in desktop */
   cursor: pointer;
-  transition: transform 0.3s ease;
 }
 
-.menu-btn:hover {
-  transform: translateY(-50%) scale(1.1);
-  color: var(--primary);
+/* MOBILE MENU (HIDDEN BY DEFAULT) */
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  background: white;
+  padding: 20px 0;
+  gap: 18px;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.10);
 }
 
-/* Mobile styles */
-@media (max-width: 900px) {
-  .nav-links {
-    display: none;
+.mobile-menu li {
+  list-style: none;
+}
+
+.mobile-menu a {
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+/* MOBILE RESPONSIVE BEGINS */
+@media (max-width: 768px) {
+
+  /* Increase navbar height */
+  .navbar {
+    padding: 20px 22px;
   }
 
+  /* show hamburger icon */
   .menu-btn {
     display: block;
   }
 
+  /* hide desktop menu */
+  .nav-links {
+    display: none;
+  }
+
+  /* show the dropdown menu */
   .mobile-menu {
-    background: rgba(10, 15, 30, 0.95);
-    position: absolute;
-    width: 100%;
-    top: 65px;
-    left: 0;
-    padding: 20px 0;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
   }
-
-  .mobile-menu a {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-  }
-
-  .mobile-menu a:hover {
-    color: var(--primary);
-  }
-}
-
-/* 📱 MOBILE MENU FIX */
-.mobile-menu {
-  display: none;
-}
-
-.mobile-menu.show {
-  display: flex !important;
 }
 
 /* ----------------------------- */
@@ -265,12 +251,6 @@ body {
   opacity: 0.9;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .emoji {
-    font-size: 2.5rem;
-  }
-}
 /* 📱 ABOUT SECTION MOBILE FIX — stack cards vertically */
 @media (max-width: 768px) {
   .about-boxes {
@@ -494,8 +474,10 @@ body {
   }
 }
 
-/* 📱 CONTACT SECTION — Form first, details second */
 @media (max-width: 900px) {
+  .contact-container {
+    flex-direction: column;
+  }
   .contact-left {
     order: 1 !important;
   }
@@ -503,6 +485,7 @@ body {
     order: 2 !important;
   }
 }
+
 
 /* ----------------------------- */
 /* 🔹 SCROLL ANIMATION (Generic) */
