@@ -446,7 +446,7 @@ body {
   font-weight: 500;
 }
 
-/* ✅ Responsive Layout */
+/* ✅ Responsive Layout 
 @media (max-width: 900px) {
   .contact-grid {
     grid-template-columns: 1fr;
@@ -461,7 +461,9 @@ body {
   .contact-title {
     margin-bottom: 30px;
   }
-}/* 📱 CONTACT — Mobile View Fix */
+}
+  */
+  /* 📱 CONTACT — Mobile View Fix */
 @media (max-width: 900px) {
 
   /* Stack elements vertically */
